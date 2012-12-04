@@ -25,5 +25,5 @@ public static int maxSubMatrix(int[][] matrix){
       maxSum = Math.max(maxSum,tempMaxSum);
     }
   }
-
+  return maxSum;
 }
