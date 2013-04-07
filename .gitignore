@@ -1,29 +1,6 @@
-publi void clearArray(int[] array){
-  for (int i=0;i<array.length;i++){
-   array[i] = 0;
-  }
+*.class
 
-}
-
-public static int maxSubMatrix(int[][] matrix){
- int rowCount = matrix.length;
- int colCount = matrix[0].length;
-
- int[] partialSum = new int[colCount];
- int maxSum = 0; // Max sum is an empty matrix
-  
- for (int rowStart = 0; rowStart < rowCount; rowStart++){
-  clearArray(partialSum);
-   
-    for (int rowEnd = rowStart; rowStart < rowCount; rowEnd++){
-      for (int i = 0; i < colCount; i++){
-       partialSum[i] += matrix[rowEnd][i];
-      }
-      
-      int tempMaxSum = maxSubArray(particalSum, colCount);
-
-      maxSum = Math.max(maxSum,tempMaxSum);
-    }
-  }
-  return maxSum;
-}
+# Package Files #
+*.jar
+*.war
+*.ear
