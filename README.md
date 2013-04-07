@@ -1,4 +1,2 @@
-maxSubMatrix
-============
-
-find maxSubMatrix of N*N Matrix
+Sourse code of the Problem in CareerCup 
+======
