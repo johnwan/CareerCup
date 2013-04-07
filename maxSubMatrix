@@ -1,3 +1,5 @@
+//find maxSubMatrix of N*N Matrix
+//===========================================
 publi void clearArray(int[] array){
   for (int i=0;i<array.length;i++){
    array[i] = 0;
