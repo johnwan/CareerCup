@@ -1,0 +1,24 @@
+LinkedListNode findBeginning(LinkedListNode head){
+    LinkedListNode slow = head;
+    LinkedListNode fast = head;
+    
+    while(fast != null && fast.next != null){
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow == next)
+            break;
+    }
+    
+    
+    if (fast == null || fast.next == null)
+        return null; // invalid data
+        
+    slow = head; //set slow back to head;
+    while (slow != fast){
+        slow = slow.next;
+        fast = fast.next;
+    }
+    
+    //while they collised again, that is the point we want
+    return fast;
+}
