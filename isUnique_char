@@ -1,0 +1,32 @@
+
+public class isunique {
+  public boolean isunique1(String str)
+  {
+  boolean[] char_bool = new boolean[256];
+	for (int i=0;i<str.length();i++)
+	{
+		int pointer = str.charAt(i);
+		if (char_bool[pointer])
+			return false;
+		char_bool[pointer] = true;
+	}
+	return true;
+	  
+  }
+  
+  public boolean isunique2(String str)
+  {
+	  int checker = 0;
+	  for (int i=0; i<str.length();i++)
+	  {
+		  int pointer = str.charAt(i)-'a';
+		  if ((checker & (1 << pointer)) > 0)
+			{
+			  return false;
+			}
+		  checker |= (1<<pointer);
+	  }
+	 return true;
+  }
+}
+
