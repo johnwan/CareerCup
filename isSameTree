@@ -1,0 +1,21 @@
+public static boolean isSameTree1(TreeNode t1, TreeNode t2){
+    if ((t1 == null) && (t2 == null))
+        return true;
+    else 
+        return false;
+   
+    
+    
+    if (t1.data != t2.data)
+        return false;
+    else {
+        return ( isSameTree(t1.left,t2.left) && isSameTree(t1.right,t2.right)
+                || isSameTree(t1.right,t2.left) && isSameTree(t1.left,t2.right))
+    }
+}   
+    
+    
+    
+    
+    
+}
