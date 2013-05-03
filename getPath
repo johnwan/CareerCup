@@ -1,0 +1,68 @@
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Hashtable;
+
+
+/**
+ * Imagine a robot sitting on the upper left hand corner of an NxN grid. 
+ * The robot can only move in two directions: right and down. 
+ * How many possible paths are there for the robot?
+ * FOLLOW UP
+ * Imagine certain squares are “off limits”, such that the robot can not step on them. 
+ * Design an algorithm to get all possible paths for the robot.
+ **/
+public class getPath {
+
+  public static int getPath(int x, int y,ArrayList<Point> path,Hashtable<Point,Integer> cache){
+
+		Point p = new Point(x,y);
+		   if (cache.containsKey(p))
+		      {
+		        return cache.get(p);
+		      }
+		  path.add(p);
+		   if (x == 0 && y == 0)
+		      {  
+			   /*
+			   for(Point pa: path){
+				   System.out.print("x=");
+				   System.out.print(pa.x);
+				   System.out.print(",y=");
+				   System.out.print(pa.y);				   
+			   }
+			   System.out.println();	
+			   */
+		        return 1;
+		        
+		      }
+		  int right_count = 0;
+		  int down_count = 0;
+		   if (x >= 1)
+		      {
+		         right_count = getPath(x-1,y,path,cache);
+		      }
+		    if (y >= 1)
+		      {
+		         down_count = getPath(x,y-1,path,cache);
+		      }
+		    else
+		        {
+		         path.remove(p);
+		        }
+		  cache.put(p,right_count+down_count);
+		  return right_count+down_count;
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		 Hashtable<Point, Integer> cache
+	     = new Hashtable<Point, Integer>();
+		 ArrayList<Point> path = new ArrayList<Point>() ;
+		int pathNum = getPath(3, 3, path,cache);
+		System.out.print(pathNum);
+
+	}
+
+}
