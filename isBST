@@ -1,0 +1,82 @@
+
+public class isBST {
+  private static class Node {  
+        Node leftChild;  
+        Node rightChild;  
+        int data;  
+  
+        Node(int newData) {  
+        	leftChild = null;  
+        	rightChild = null;  
+            data = newData;  
+        }  
+  
+    }
+	public static boolean isBST(Node root){
+		return isBSTHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+		
+	}
+	private static boolean isBSTHelper(Node p, int min, int max) {
+		// TODO Auto-generated method stub
+		if (p == null)
+			return true;
+		
+		if (p.data > min && p.data < max )
+			return (isBSTHelper(p.leftChild,min,p.data) && isBSTHelper(p.rightChild,p.data,max));
+		else 
+			return false;
+	}
+	
+	public static void insert(Node root, int t){
+		Node n = new Node(t);
+		
+		Node pNode = search(root, t);
+		
+		if (pNode.data > t)
+			pNode.leftChild = n;
+		else if (pNode.data < t)
+			pNode.rightChild = n;	
+		
+		
+	}
+	
+	public static Node search(Node root, int t){
+		Node pNode = root;
+		Node parent = null;
+		while (pNode != null){
+			parent = pNode;
+			if(t < pNode.data){
+				pNode = pNode.leftChild;
+			}
+			else if (t > pNode.data){
+				pNode = pNode.rightChild;
+			}
+			else 
+				return pNode;			
+		}
+	   return parent;
+	}
+	
+	public static void main(String[] args){
+		Node n = new Node(5);
+		int[] a = {3, 2, 6, 1, 7, 8, 4, 10};
+		
+		for (int i:a){
+			insert(n,i);
+		}
+		
+		travel(n);
+		
+	}
+	private static void travel(Node n) {
+		// TODO Auto-generated method stub
+		if (n != null){
+			travel(n.leftChild);
+			travel(n.rightChild);
+
+			System.out.print(n.data + " ");
+		}	
+		
+	}
+
+}
