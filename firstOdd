@@ -1,0 +1,44 @@
+import java.util.HashMap;
+
+
+public class firstOdd {
+  
+	public static int firstOdd(int[] a){
+		
+		int result = 0;
+		for (int i: a){
+			result = result ^ i;
+		}
+		
+	  return result;
+	}
+	
+	public static int firstOddCheck(int[] a){
+		
+		HashMap<Integer,Boolean> check = new HashMap<Integer,Boolean>();
+		
+		for (int i: a){
+			if (check.containsKey(i) && check.get(i) == true)
+				check.put(i, false);
+			else 
+				check.put(i, true);
+		}
+		
+		for (int i: a){
+			if (check.get(i) == true){
+				return i;				
+			}
+		}
+		return 0;
+		
+	}
+	
+	public static void main(String[] args){
+		
+		int[] a = {2, 3, 5, 4, 5, 2, 4, 3, 5, 2, 4, 4, 2};
+		//int[] a = {1, 1, 1, 7, 9 , 10};
+		System.out.println(firstOddCheck(a));
+		
+	}
+
+}
