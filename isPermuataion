@@ -1,0 +1,37 @@
+import java.util.Arrays;
+
+
+public class isPermuataion {
+  public boolean isPermuataion(String s, String t){
+	    if (s.length() != t.length())
+	        return false;
+	    return (sort(s).equals(sort(t)));    
+	}
+	public String sort(String s){
+	    char[] str = s.toCharArray();
+	    Arrays.sort(str);
+	    return (new String(str));
+	}
+
+	public boolean permuataion2(String s, String t){
+	    if (s.length() != t.length())
+	        return false;
+	    
+	    int[] char_count = new int[256];
+	    
+	    char[] s_array = s.toCharArray();
+	    for(char c:s_array)
+	        char_count[c]++;
+	        
+	    for(int i=0;i<t.length();i++){
+	        int c = (int)t.charAt(i);
+	        if (char_count[c]-- < 0)
+	            return false;
+	        else
+	            char_count[c]--;
+	        
+	    }
+	    return true;
+	}
+
+}
