@@ -1,0 +1,94 @@
+import java.util.Hashtable;
+
+
+public class deleteDups {
+ public static void deleteDups(LinkedListNode n)
+ {
+   Hashtable table = new Hashtable();
+	 LinkedListNode previous = null;
+	  while (n!= null)
+	  {
+		  if (table.containsKey(n.data))
+		  {
+			  previous.next = n.next;
+		  }
+		  else
+		  {
+			  table.put(n.data, true);
+			  previous = n;
+		  }
+		  
+		 n = n.next;
+	  }
+ }
+ 
+ public static void import java.util.Hashtable;
+
+
+public class deleteDups {
+ public static void deleteDups(LinkedListNode n)
+ {
+   Hashtable table = new Hashtable();
+	 LinkedListNode previous = null;
+	  while (n!= null)
+	  {
+		  if (table.containsKey(n.data))
+		  {
+			  previous.next = n.next;
+		  }
+		  else
+		  {
+			  table.put(n.data, true);
+			  previous = n;
+		  }
+		  
+		 n = n.next;
+	  }
+ }
+ 
+ public static void deleteDups2(LInkedListNode head){
+	 if (head == null) return;
+	 
+	 LinkedListNode current = head;
+	 while (current != null)
+	 {
+		 LinkedListNode runner = current;
+		 while (runner.next != null)
+		 {
+			 if (runner.next.data = runner.data){
+				 runner.next = runner.next.next;
+			 }
+			 else
+			 {
+				 runner = runner.next;
+			 }
+		 }
+	   
+	   current = current.next;
+			 
+	 }
+ }
+}
+(LInkedListNode head){
+	 if (head == null) return;
+	 
+	 LinkedListNode current = head;
+	 while (current != null)
+	 {
+		 LinkedListNode runner = current;
+		 while (runner.next != null)
+		 {
+			 if (runner.next.data = runner.data){
+				 runner.next = runner.next.next;
+			 }
+			 else
+			 {
+				 runner = runner.next;
+			 }
+		 }
+	   
+	   current = current.next;
+			 
+	 }
+ }
+}
