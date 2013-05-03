@@ -1,0 +1,28 @@
+boolean isPalindrome(LinkedListNode head){
+    LinkedListNode slow = head;
+    LinkedListNOde fast = head;
+    
+    Stack<Integer> stack = new Stack<Integer>();
+    
+    while (fast!=null && fast.next != null){
+        stack.put(slow.data);
+        slow = slow.next;
+        fast - fast.next.next;
+    }
+    
+    // if has odd elements
+    if (fast != null){
+        slow = slow.next;
+    } 
+    
+    while(slow != null){
+        int top = stack.pop().intValue();
+        
+        if (top != slow.data)
+            return false;
+        
+        slow = slow.next;
+    }
+    return true;
+    
+}
