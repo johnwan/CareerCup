@@ -1,0 +1,18 @@
+#list of letters you can type with left hand
+letters = ['a','b','c','d','e']
+#dict of valid words
+words_dic = {'aaa','bac','cab','acb','ade','bac','zae','qmn'}
+
+def check_letters(word):
+    for letter in word:
+        if letter not in letters:
+            return False
+    return True
+
+#Iterate the Dictionary
+for word in words_dic:
+    if check_letters(word):
+        print word
+
+##   Assume words_dic's lenth is 'n'.
+##   So complexity of iterating the Dictionary is O(n)
