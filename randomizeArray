@@ -1,0 +1,19 @@
+/** 
+     * 随机化数组方式二，直接位置交换方式 
+     * 复杂度为：O(n) 
+     * RANDOMIZE-IN-PLACE(A) 
+     *  1 n ← length[A] 
+     *  2 for i ← to n 
+     *  3 do swap A[i] ↔ A[RANDOM(i, n)] 
+     * @param input 
+     */ 
+    private static void randomizeInPlace(int[] input) { 
+        int n = input.length; 
+        for (int i = 0; i < n; i++) { 
+            int index = (int) (Math.random() * (n - i - 1) + i); 
+            int temp = input[index]; 
+            input[index] = input[i]; 
+            input[i] = temp; 
+        } 
+    } 
+     
