@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 
 public class firstOdd {
-  
+  	// if only one number is odd
 	public static int firstOdd(int[] a){
 		
 		int result = 0;
@@ -12,7 +12,7 @@ public class firstOdd {
 		
 	  return result;
 	}
-	
+	// find the first odd one
 	public static int firstOddCheck(int[] a){
 		
 		HashMap<Integer,Boolean> check = new HashMap<Integer,Boolean>();
