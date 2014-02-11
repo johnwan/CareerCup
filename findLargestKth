@@ -1,0 +1,79 @@
+package com.test.firstKth;
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class firstKth {
+	
+	private static void QuickSort(int[] array,int start,int end)
+    {
+        if(start<end)
+        {
+            int key=array[start];//初始化保存基元
+            int i=start,j;//初始化i,j
+            for(j=start+1;j<=end;j++)
+            {
+                if(array[j]<key)//如果此处元素小于基元，则把此元素和i+1处元素交换，并将i加1，如大于或等于基元则继续循环
+                {
+                    int temp=array[j];
+                    array[j]=array[i+1];
+                    array[i+1]=temp;
+                    i++;
+                }
+                
+            }
+            array[start]=array[i];//交换i处元素和基元
+            array[i]=key;
+            QuickSort(array, start, i-1);//递归调用
+            QuickSort(array, i+1, end);
+            
+        }
+        
+    }
+	
+	private static int[] findKthLargest(int[] array,int start,int end,int k)
+    {
+        if(start<end)
+        {
+            int key=array[start];//初始化保存基元
+            int i=start,j;//初始化i,j
+            for(j=start+1;j<=end;j++)
+            {
+                if(array[j]<key)//如果此处元素小于基元，则把此元素和i+1处元素交换，并将i加1，如大于或等于基元则继续循环
+                {
+                    int temp=array[j];
+                    array[j]=array[i+1];
+                    array[i+1]=temp;
+                    i++;
+                }
+                
+            }
+            array[start]=array[i];//交换i处元素和基元
+            array[i]=key;
+            
+            if (i > k - 1)
+            	return findKthLargest(array, start, i-1, k);//递归调用
+            else if (i > k - 1)
+            	return findKthLargest(array, i+1, end, k - i);
+            else
+            	return Arrays.copyOfRange(array, 0, k);
+            
+        }
+		return null;
+        
+    }
+	
+	public static void main(String[] args){
+		int[] arr = {12012, 3, 945, 965, 66, 232, 65, 7, 8, 898, 56, 878, 170, 13, 5};  
+		QuickSort(arr,0,arr.length-1);
+		int[] result = findKthLargest(arr,0,arr.length-1,14);
+		for(int i:arr){
+			System.out.print(i + ",");
+		}
+		System.out.println();
+		for(int i:result){
+			System.out.print(i + ",");
+		}
+	}
+}
