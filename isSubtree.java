@@ -29,6 +29,8 @@ public class hasSubtree {
 	  if (r1 == null || r2 == null){
 		  return false;
 	  }
+	  if (r1.data != r2.data)
+	  	return false;
 	  
 	  return (matchTree(r1.left,r2.left)&&matchTree(r1.right,r2.right));
   }
