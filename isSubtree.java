@@ -30,7 +30,7 @@ public class hasSubtree {
 		  return false;
 	  }
 	  
-	  return (matchTree(r1.left,r2.left)&&matchTree(r1.right,r2.right))
+	  return (matchTree(r1.left,r2.left)&&matchTree(r1.right,r2.right));
   }
 }
  
